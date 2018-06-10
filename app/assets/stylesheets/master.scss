@@ -3,11 +3,19 @@
 
 .navbar-brand{
   font-size: 28px;
+  font-weight: 300px;
 }
 
 #log-in{
   position: absolute;
   right: 0px;
-  padding-right: 15px;
-  
+  padding-right: 15px; 
 }
+
+.navbar{
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 200;
+  box-shadow: 0px 1px 3px #2a2a2a;
+  background: image_url('grey-wash-wall-2.png');
+}
+
