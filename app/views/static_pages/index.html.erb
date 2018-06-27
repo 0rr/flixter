@@ -4,7 +4,7 @@
 
   <div class="collapse navbar-collapse" id="navbarNav">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="#"> See all Courses </a>
+      <%= link_to("See All Courses",courses_path,{class: "nav-item nav-link"}) %>
       <a class="nav-item nav-link" href="#"> Nav Two </a>
       <a class="nav-item nav-link" href="#"> Nav Three </a>
 
@@ -55,7 +55,7 @@
     <br />
     <h2> I'm an illusionist, Michael. </h2>
     <br />
-    <%= link_to 'Learn More', '#', class: 'btn btn-success' %>
+    <%= link_to 'Learn More', courses_path, class: 'btn btn-success' %>
   </div>
 </div>
 
