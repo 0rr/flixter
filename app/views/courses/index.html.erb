@@ -1,5 +1,5 @@
 <h1>Show Courses</h1>
-<h2>courses#index</h2>
+<h2>courses#index</h2> 
 
 <br />
 
@@ -8,7 +8,7 @@
   <hr />
 
   <% @courses.each do |course| %>
-    <h2 class="text-center"><%= course.title %></h2>
+    <h2 class="text-center"><%= link_to(course.title, course_path(course))%></h2>
 
     <br />
 
@@ -18,7 +18,7 @@
       </div>
 
       <div class="col-sm-4 col-12 text-center">
-        <%= link_to("Button", "#", {class: 'btn btn-primary btn-large'}) %>
+        <%= link_to("Give me the deets", course_path(course), {class: 'btn btn-primary btn-large'}) %>
       </div>
     </div>
 
