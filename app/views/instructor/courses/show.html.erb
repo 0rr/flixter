@@ -1,5 +1,5 @@
 
-<h1>Here is the course</h1>
+<h1>Here is the course (instructor view)</h1>
 <p> instructor/courses # show</p>
 <p> instructor/courses/:id </p>
 
@@ -18,6 +18,18 @@
   <% @course.sections.each do |section| %>
     <li>
       <%= section.title %>
+      <%= link_to("New Lesson", new_instructor_section_lesson_path(section), {class: "float-right btn btn-primary btn-sm"}) %>
     </li>
+
+    <ul>
+      <% section.lessons.each do |lesson| %>
+        <li>
+          <b><%= lesson.title %></b>
+          -
+          <%= lesson.subtitle %>
+        </li>
+      <% end %>
+    </ul>
+
   <% end %>
 </ul>
