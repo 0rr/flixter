@@ -1,4 +1,4 @@
-<h1>Show Courses</h1>
+<h1>Courses Index</h1>
 <h2>courses#index</h2> 
 
 <br />
@@ -9,6 +9,8 @@
 
   <% @courses.each do |course| %>
     <h2 class="text-center"><%= link_to(course.title, course_path(course))%></h2>
+
+    <%= image_tag course.image, class:"img-fluid" %>
 
     <br />
 
