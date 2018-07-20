@@ -6,7 +6,10 @@ class EnrollmentsController < ApplicationController
     redirect_to course_path(current_course)
   end
 
-
+  ####Could also write like:
+  # def create
+  #   Enrollment.create(course: current_course, user: current_user)
+  # end
 
 
   private
