@@ -10,5 +10,11 @@ class Course < ApplicationRecord
   mount_uploader :image, ImageUploader
 
 
-  
+  def free?
+    cost.zero?
+  end
+
+  def premium?
+    ! free?
+  end
 end
