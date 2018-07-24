@@ -26,7 +26,7 @@
     </li>
 
     <ul>
-      <% section.lessons.each do |lesson| %>
+      <% section.lessons.rank(:row_order).each do |lesson| %>
         <li>
           <b><%= lesson.title %></b>
           -

@@ -25,6 +25,7 @@ class EnrollmentsController < ApplicationController
         :description => 'Flixter Primo Content',
         :currency    => 'usd'
       )
+
     end
     #gotta charge first before enrollment
     current_user.enrollments.create(course: current_course)
