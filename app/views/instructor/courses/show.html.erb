@@ -18,6 +18,22 @@
       }
     });
   });
+
+  $(function () {
+    $('.sections').sortable({
+      update: function( event, ui ) {
+        // alert("Section Id " + ui.item.data("item-id") + " Index: " + ui.item.index());
+        alert("UpdateUrl: " + ui.item.data('update-url') + " Index: " + ui.item.index());
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { section: { row_order_position: ui.item.index() } }
+        });
+      }
+    });
+  });
+
 </script>
 
 <br />
@@ -26,32 +42,34 @@
 
   <%= image_tag current_course.image, class: "img-fluid"%>
 
-  <br />
+ <!--  <br /> -->
+  <%= link_to("Add a new section...", new_instructor_course_section_path(current_course), {class: "btn btn-primary"}) %>
   <%= link_to("Preview As Student", course_path(current_course), {class: "btn btn-warning float-right"}) %>
-  <br class="clr">
+  <!-- <br class="clr"> -->
 
-  <%= link_to("Add a new section...", new_instructor_course_section_path(current_course), {class: "btn btn-primary btn-lg"}) %>
-
-
+  <br />
+  <br />
 </div>
 
-<ul>
-  <% current_course.sections.each do |section| %>
-    <li>
-      <%= section.title %>
-      <%= link_to("New Lesson", new_instructor_section_lesson_path(section), {class: "float-right btn btn-primary btn-sm"}) %>
-    </li>
+<div class="booyah-box col-10 offset-1">
+  <ul class="sections">
+    <% current_course.sections.rank(:row_order).each do |section| %>
+      <li data-update-url= "<%= instructor_section_path section %>" >
+        <%= section.title %>
+        <%= link_to("New Lesson", new_instructor_section_lesson_path(section), {class: "float-right btn btn-primary btn-sm"}) %>
+        <hr>
+      </li>
 
-    <ul class="lessons">
-      <% section.lessons.rank(:row_order).each do |lesson| %>
-        <li data-update-url = "<%= instructor_lesson_path lesson %>">
-          <b><%= lesson.title %></b>
-          -
-          <%= lesson.subtitle %>
-        </li>
-      <% end %>
-    </ul>
+      <ul class="lessons">
+        <% section.lessons.rank(:row_order).each do |lesson| %>
+          <li data-update-url = "<%= instructor_lesson_path lesson %>">
+            <b><%= lesson.title %></b>
+            -
+            <%= lesson.subtitle %>
+          </li>
+        <% end %>
+      </ul>
 
-  <% end %>
-</ul>
-
+    <% end %>
+  </ul>
+</div>
