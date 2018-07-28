@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
 
   root 'static_pages#index'
+  get 'privacy', to: 'static_pages#privacy'
+
+
   resources(:courses, {only: [:index, :show]}) do
     resources(:enrollments, {only: [:create]}) #nest enrollments in courses namespace so you can slurp course_id from url params
   end
