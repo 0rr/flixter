@@ -26,7 +26,7 @@ Rails.application.routes.draw do
                                                                     #####                                                                    
     #nested inside instructor namespace                             #####
     resources :courses, only: [:new, :create, :show] do             #####
-      resources :sections, only: [:new, :create] do                 #####
+      resources :sections, only: [:create] do                       #####
       end                                                           #####
     end                                                             #####
   end                                                               #####

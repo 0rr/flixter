@@ -1,11 +1,12 @@
 class Instructor::SectionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :require_authorized_for_current_course, only: [:new, :create]
+  before_action :require_authorized_for_current_course, only: [:create]
   before_action :require_authorized_for_current_section, only: [:update]
 
-  def new
-    @section = Section.new
-  end
+  # Because we put the functinality of creating a new section within a modal on the show courses page, we no longer need this controller action - there is no new section page anymore
+  # def new
+  #   @section = Section.new
+  # end
 
   def create
     @section = current_course.sections.create(section_params)

@@ -15,8 +15,10 @@ class Instructor::CoursesController < ApplicationController
     end
   end
 
+  #!Q - flixter lesson 35 - why is this line needed? don't quite understand
+  #!A - I get it, since we are using the @section variable within the modal for adding a new section, we need to instantiate the variable first
   def show
-    
+    @section = Section.new
   end
 
   private
