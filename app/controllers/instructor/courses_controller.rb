@@ -19,6 +19,7 @@ class Instructor::CoursesController < ApplicationController
   #!A - I get it, since we are using the @section variable within the modal for adding a new section, we need to instantiate the variable first
   def show
     @section = Section.new
+    @lesson = Lesson.new
   end
 
   private
